@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8" />
+  <title>工作区和暂存区</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+<div id="x-content">
+  <h3>工作区和暂存区</h3>
+  <hr>
+  <div class="x-wiki-content x-main-content"><p>git 和 svn 的一个不同之处就是有暂存区的概念。</p></div>
+	
+  <h4>工作区（Working Directory）</h4>
+  <p>就是在电脑里能看到的目录，比如下图中<code>git-practice</code>文件夹就是一个工作区。</p>
+  <p><img src="images/working-dir.PNG" alt="working-dir" /></p>
+  
+  <h4>版本库（Repository）</h4>
+  <p>工作区有一个隐藏目录<code>.git</code>，这个不算工作区，而是 git 的版本库。</p>
+  <p>git 的版本库里存了很多东西，其中最重要的就是称为 stage（或者叫 index）的暂存区，还有 git 为我们自动创建的第一个分支<code>master</code>，以及指向<code>master</code>的一个指针叫<code>HEAD</code>。</p>
+  <p><img src="images/git-repo.jpg" alt="git-repo" /></p>
+
+  <p>我们把文件往 git 版本库里添加的时候，是分两步执行的：</p>
+  <p>① <code>git add</code>把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
+  <p>② <code>git commit</code>提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+  <p>因为我们创建 git 版本库时，Git自动为我们创建了唯一一个<code>master</code>分支，所以，现在，<code>git commit</code>就是往<code>master</code>分支上提交更改。</p>
+  <p>可以简单理解为：需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。</p>
+  
+  <b>例子</b>
+  <p>(1) 先对<code>readme.txt</code>做个修改，加上一行内容：</p>
+  <p><img src="images/readme-snapshot.PNG" alt="readme-snapshot" /></p>
+  
+  <p>(2) 在工作区新增一个<code>LICENSE</code>文本文件，用<code>git status</code>查看一下：</p>
+  <p><img src="images/git-status-before-add.PNG" alt="git-status-before-add" /></p>
+  <p>可以看到：<code>readme.txt</code>被修改了，而<code>LICENSE</code>还从来没有被添加过，所以它的状态是<code>Untracked</code>。</p>
+  
+  <p>(3) 使用命令<code>git add</code>，把<code>readme.txt</code>和<code>LICENSE</code>都添加，用<code>git status</code>再查看一下：</p>
+  <p><img src="images/git-status-after-add.PNG" alt="git-status-after-add" /></p>
+  <p>现在，暂存区的状态就变成这样了：</p>
+  <p><img src="images/git-stage.jpg" data-src="git-stage.jpg" alt="git-stage" /></p>
+  <p>所以，<code>git add</code>命令实际上就是把要提交的所有修改放到暂存区（Stage），然后执行<code>git commit</code>就可以一次性把暂存区的所有修改提交到分支。</p>
+  
+  <p>(3) 使用命令<code>git commit</code>提交缓存区到仓库，用<code>git status</code>再查看一下：</p>
+  <p><img src="images/git-status-after-commit.PNG" alt="git-status-after-commit" /></p>
+  <p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的。</p>
+  <p>现在版本库变成了这样，暂存区就没有任何内容了：</p>
+  <p><img src="images/git-stage-after-commit.jpg" alt="git-stage-after-commit" /></p>
+  
+</body>
+</html>
