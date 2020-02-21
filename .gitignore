@@ -1,7 +1,6 @@
 #dir
 branches/
-tag/
+build-version/
 
 #files
 branch*.html
-tag*.html

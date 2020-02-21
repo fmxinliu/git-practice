@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8" />
+  <title>标签</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <h3>创建带说明的标签</h3>
+  <div class="uk-alert">
+    <p>◆ 切换到需要打标签的分支上。</p>
+    <p>◆ 执行<code>git tag -a &lt;tag_name&gt; -m &lt;commit_info&gt; &lt;commit_hash&gt;</code>[在指定的版本上][创建+]指定标签信息。</p>
+	<p>◆ 执行<code>git tag -n</code>查看所有标签信息。</p>
+	<p>◆ 执行<code>git show &lt;tag_name&gt;</code>查看指定标签对应版本的提交信息。</p>
+	<p>注意：标签总是和某个 commit 挂钩。如果这个 commit 既出现在 master 分支，又出现在 develop 分支，那么在这两个分支上都可以看到这个标签。</p>
+  </div>
+  <p><img src="images/git-tag-create.PNG" alt="git-tag-create"/></p> 
+  
+  <h3>推送标签到远程</h3>
+  <div class="uk-alert">
+    <p>◆ <code>git push origin &lt;tag_name&gt;</code> - 推送指定的本地标签。</p>
+	<p>◆ <code>git push origin --tags</code> - 推送全部未推送过的本地标签。</p>
+	<p>注意：<code>git push</code>并不会推送标签。</p>
+  </div>
+  <p><img src="images/git-tag-push.PNG" alt="git-tag-push"/></p> 
+  
+  <h3>删除远程标签</h3>
+  <div class="uk-alert">
+    <p>① 先删除指定的本地标签：<code>git tag -d &lt;tag_name&gt;</code></p>
+	<p>② 再推送指定的本地标签：<code>git push origin :refs/tags/&lt;tag_name&gt;</code></p>
+	<p>注意：<code>git tag -d &lt;tag_name&gt;</code>只删除了本地标签，不影响远程标签。</p>
+  </div>
+  <p><img src="images/git-tag-delete.PNG" alt="git-tag-delete"/></p> 
+</body>
+</html>
