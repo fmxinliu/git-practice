@@ -66,8 +66,8 @@
   <h3>(9) git checkout - 撤销修改/创建 or 切换分支</h3>
   <h4>典型使用：</h4>
   <p><code>git checkout -- &lt;file&gt;</code>撤销工作区 file 文件的修改，回退到暂存区/版本库中的版本。<a href="images/9.git-checkout-1.PNG" alt="">实例1</a>，<a href="images/9.git-checkout-2.PNG" alt="">实例2</a></p>
-  <p><code>git checkout &lt;branch&gt;</code>切换到 branch 分支。
-  <p><code>git checkout -b &lt;branch&gt;</code>创建 + 切换到 branch 分支。<a href="images/9.git-checkout-3.PNG" alt="">实例3</a>
+  <p><code>git checkout &lt;branch&gt;</code>切换到 branch 分支。</p>
+  <p><code>git checkout -b &lt;branch&gt;</code>创建 + 切换到 branch 分支。<a href="images/9.git-checkout-3.PNG" alt="">实例3</a></p>
   <hr>
   
   <h3>(10) <a href="images/10.git-branch.PNG" alt="">git branch</a> - 查看/创建/删除分支</h3>
@@ -91,5 +91,13 @@
   <p><code>git remote add origin &lt;remote_url&gt;</code>本地仓库关联远程仓库 origin。</p>
   <p><code>git remote rm &lt;remote_name&gt;</code>删除指定的远程仓库的关联。</p>
   <hr>
+  
+  <h3>(13) git push - 向远程仓库推送修改</h3>
+  <h4>典型使用：</h4>
+  <p><code>git push origin &lt;branch_name&gt;</code>推送本地当前分支到远程仓库 origin 指定的分支 branch_name。<a href="images/13.git-push-1.PNG" alt="">实例1</a></p>
+  <p><code>git push -u origin &lt;branch_name&gt;</code>将本地的 branch_name 分支推送到远程仓库 origin 的对应分支，同时指定 origin 为默认远程仓库，后面就可以不加任何参数使用 git push 了。<a href="images/13.git-push-2.PNG" alt="">实例2</a></p>
+  <p><code>git push</code>把当前分支 master 推送到远程仓库对应的分支。</p>
+  <hr>
+  
 </body>
 </html>
