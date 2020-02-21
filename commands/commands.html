@@ -63,9 +63,11 @@
   <p>通过<code>git reset</code>回退版本后，该版本之后的提交无法通过<code>git log</code>查到。如果想要撤销回退，可以通过该指令查找对应的哈希，然后执行<code>git reset</code>进行回退。</p>
   <hr>
   
-  <h3>(9)git checkout - 撤销修改/分支</h3>
+  <h3>(9) git checkout - 撤销修改/创建 or 切换分支</h3>
   <h4>典型使用：</h4>
   <p><code>git checkout -- &lt;file&gt;</code>撤销工作区 file 文件的修改，回退到暂存区/版本库中的版本。<a href="images/9.git-checkout-1.PNG" alt="">实例1</a>，<a href="images/9.git-checkout-2.PNG" alt="">实例2</a></p>
+  <p><code>git checkout &lt;branch&gt;</code>切换到 branch 分支。
+  <p><code>git checkout -b &lt;branch&gt;</code>创建 + 切换到 branch 分支。<a href="images/9.git-checkout-3.PNG" alt="">实例3</a>
   <hr>
 </body>
 </html>
