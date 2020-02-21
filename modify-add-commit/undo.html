@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8" />
+  <title>撤销修改</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+<div id="x-content">
+  <h3>撤销修改</h3>	
+  <div id="chapter">
+    <p>上一篇<a href="modify.html">《提交修改》</a></p>
+    <p>下一篇<a href="delete.html">《删除文件》</a></p>
+  </div>
+  <hr>
+
+  <b>(1) 撤销工作区的修改，完全丢弃</b>
+  <p><b>语法：</b><code>git checkout -- file</code></p>
+  <p>有以下两种情况：</p>
+  <p>①<code>file</code>自修改后还没有被放到暂存区。现在，撤销修改就回到和版本库一模一样的状态；</p>
+  <p>②<code>file</code>已经添加到暂存区后，又作了修改。现在，撤销修改就回到添加到暂存区后的状态。</p>
+  <p>总之，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</p>
+  
+  <p><b>例1：</b>对 readme.txt 修改，但不添加到暂存区，撤销修改。</p>
+  <p><img src="images/undo/readme-modify-1.PNG" alt="readme-modify-add" /></p>
+  <p>可见，readme.txt 回到和版本库一模一样的状态。</p>
+  
+  <p><b>例2：</b>对 readme.txt 做第一次修改并添加到暂存区，做第二次修改但不添加到暂存区，撤销修改。</p>
+  <p><img src="images/undo/readme-modify-2.PNG" alt="readme-modify-unadd" /></p>
+  <p>可见，readme.txt 回到和暂存区一模一样的状态。</p>
+  
+  <p><b>例3：</b>删除 readme.txt 修改，撤销修改。</p>
+  <p><img src="images/undo/readme-modify-3.PNG" alt="readme-modify-delete" /></p>
+  <p>可见，readme.txt 回到和版本库一模一样的状态。</p>
+  
+  
+  <b>(2) 撤销暂存区的修改<code>Unstaged</code>，重新放回工作区</b>
+  <p><b>语法：</b><code>git reset HEAD &lt;file&gt;</code></p>
+  
+  <p><b>例4：</b>对 readme.txt 暂存区撤销</p>
+  <p><img src="images/undo/readme-modify-4.PNG" alt="readme-modify-unstaged" /></p>
+  <p>可见，暂存区 readme.txt 的修改被回退到工作区。如果要撤销工作区中的修改，参照(1)。</p>
+  
+  <b>(3) 撤销版本库中的修改，该版本之后的提交都被丢弃</b>
+  <p><b>语法：</b><code>git reset --hard <SHA></code>，见<a href="../commands/commands.html" target="_blank">常用命令(7)</a>。</p>
+  <p>注意，如果已经提交了不合适的修改到<b>远程版本库</b>，想要撤销本次提交。这时，要慎重使用该命令，否则别人在该版本后的提交，也会被一同撤销。</p>
+</body>
+</html>
