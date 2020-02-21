@@ -1,5 +1,8 @@
 #dir
-branch/
+branches/
+tag/
+remote repo/
 
 #files
-branch-*.html
+branch*.html
+tag*.html
