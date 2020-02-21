@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8" />
+  <title>提交修改</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+<div id="x-content">
+  <h3>提交修改</h3>
+  <hr>
+  
+  <p>请先阅读上篇<a href="staged.html" target="_blank">工作区和暂存区</a>。下面，我们讨论：git 如何提交修改。</p> 
+  
+  <p>(1) 先对 readme.txt 做个修改，加上一行内容：</p>
+  <p><img src="images/modify/readme-snapshot.PNG" alt="readme-snapshot" /></p>
+  
+  <p>(2) 使用命令<code>git add</code>，把<code>readme.txt</code>添加到暂存区，用<code>git status</code>查看一下：</p>
+  <p><img src="images/modify/git-status-after-add.PNG" alt="git-status-after-add" /></p>
+  
+  <p>(3) 再修改 readme.txt，用<code>git status</code>查看一下：</p>
+  <p><img src="images/modify/git-status-modify.PNG" alt="git-status-modify" /></p>
+
+  <p>(4) 使用命令<code>git commit</code>提交暂存区到仓库，用<code>git status</code>再查看一下：</p>
+  <p><img src="images/modify/git-status-after-commit.PNG" alt="git-status-after-commit" /></p>
+  
+  <p>(5) 使用命令<code>git diff HEAD -- readme.txt</code>查看工作区和版本库里面最新版本的区别：</p>
+  <p><img src="images/modify/git-diff.PNG" alt="git-diff" /></p>
+
+  
+  <b>咦，怎么第二次的修改没有被提交？</b>
+  <p>回顾一下我们的操作过程：第一次修改 -&gt; <code>git add</code> -&gt; 第二次修改 -&gt; <code>git commit</code></p>
+  <p>①在工作区的第一次修改被放入暂存区，准备提交;</p>
+  <p>②接着工作区又进行了修改，但是并没有添加到暂存区，就直接进行了提交。</p>
+  
+  <b>那怎么提交第二次修改呢？</b>
+  <p>同第一次提交一样，继续<code>git add</code>再<code>git commit</code>，现在就把第二次修改提交了。</p>
+  
+  <b>多次修改如何一次性提交呢？</b>
+  <p>第一次修改 -&gt; <code>git add</code> -&gt; 第二次修改 -&gt; <code>git add</code> -&gt; <code>git commit</code></p>
+</body>
+</html>
