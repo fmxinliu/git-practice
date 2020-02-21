@@ -1,7 +1,6 @@
 #dir
 branches/
 tag/
-remote repo/
 
 #files
 branch*.html
