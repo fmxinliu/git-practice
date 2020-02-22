@@ -1,6 +1,5 @@
 #dir
 branches/
-version-gen-test/
 
 #files
 branch*.html
