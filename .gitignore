@@ -3,3 +3,28 @@ branches/
 
 #files
 branch*.html
+Version.cs
+
+
+# Visual Studio files
+*.suo
+*.user
+*.sln.docstates
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+Lib/
+.vs/
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.psess
+*.vsp
+*.vspx

@@ -1,0 +1,14 @@
+namespace version_pro
+{
+    public class Version
+    {
+        private string gitVersion = "v1.0.xxxx";
+        private string gitTime = "yyyy-MM-dd hh:mm:ss";
+        private static Version instance = new Version();
+
+        private Version() {}
+        public static Version Instance { get { return Version.instance; } }
+        public string GitVersion { get { return this.gitVersion; } }
+        public string GitTime { get { return this.gitTime; } }
+    }
+}
