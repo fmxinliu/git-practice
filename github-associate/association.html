@@ -14,27 +14,32 @@
   <h3>github</h3>
   <div class="uk-alert">
     <p>◆ git 是分布式版本控制系统，每个人的电脑上都是一个完整的版本库。</p>
-	<p>◆ git 协同开发，理论上只需把各自的修改推送给对方，实际使用通常也有一台充当“中央服务器”的电脑，仅仅用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。</p>
+    <p>◆ git 协同开发，理论上只需把各自的修改推送给对方，实际使用通常也有一台充当“中央服务器”的电脑，仅仅用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。</p>
     <p>◆ 充当“中央服务器”的电脑，需要长时间开机，可以直接搭建一台运行 git 的服务器，也可以使用<a href="https://github.com" target="_blank"> github </a>网站提供的免费的 git 远程仓库。</p>
-    <p>◆ 使用前，请先注册 GitHub 账号，并配置SSH Key。</p>
+    <p>◆ 使用前，请先注册 GitHub 账号，并配置 SSH Key。</p>
   </div>
   
   
   
-  <h3>关联远程仓库并推送</h3>
+  <h3>关联远程仓库，并推送</h3>
   <div class="uk-alert">
     <p>◆ 登陆GitHub，创建远程仓库<code>git-practice</code>。</p>
-    <p>◆ 仓库关联：执行<code>git remote add origin git@github.com:fmxinliu/git-practice.git</code>，关联后，远程仓库的名字就是<code>origin</code>。</p>
-	<p>◆ 分支关联：执行<code>git push -u origin master</code>，关联后，以后推送可以使用<code>git push origin master</code>把当前<code>master</code>分支推送到对应的远程<code>master</code>分支。</p>
-	<hr>
-	<p>◆ 查看关联：执行<code>git remote -v</code></p>
-	<p>◆ 删除关联：执行<code>git remote rm origin</code></p>
+    <p>◆ 关联仓库：执行<code>git remote add origin git@github.com:fmxinliu/git-practice.git</code>，关联远程仓库<code>origin</code>。</p>
+    <p>◆ 推送修改：执行<code>git push -u origin master</code>，把当前<code>master</code>分支推送到远程<code>origin/master</code>分支，以后推送可以使用<code>git push</code>。</p>
+    <hr>
+    <p>◆ 查看关联远程仓库：<code>git remote -v</code>。</p>
+    <p>◆ 删除关联远程仓库：<code>git remote rm origin</code>。</p>
+    <p>◆ <a href="images/show-up-to-track.PNG">查看关联远程分支</a>：<code>git remote show origin</code>。</p>
   </div>
   
-  <h3>克隆远程仓库</h3>
+  <h3><a href="images/how-to-clone-repo.PNG">克隆远程仓库，并拉取分支</a></h3>
   <div class="uk-alert">
-    <p>◆ 登陆GitHub，查看远程仓库 git-practice 的地址。</p>
+    <p>◆ 登陆GitHub，查看远程仓库<code>git-practice</code>的地址<code>git@github.com:fmxinliu/git-practice.git git-practice-2</code>。</p>
     <p>◆ 克隆仓库：执行<code>git clone git@github.com:fmxinliu/git-practice.git git-practice-2</code>，克隆后，会在本地创建一个仓库<code>git-practice-2</code>。</p>
+    <p>◆ 进入仓库：执行<code>cd git-practice-2</code>，进入本地仓库。</p>
+    <p>◆ 查看分支：执行<code>git branch -a</code>，可以查看本地分支 + 远程分支。</p>
+    <p>◆ 拉取分支：执行<code>git checkout -b build-version origin/build-version</code>，拉取远程分支<code>origin/build-version</code> -> 本地分支<code>build-version</code>，并关联，然后切换到<code>build-version</code>。</p>
+    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;执行<code>git checkout -t origin/commands</code>，拉取远程分支<code>origin/commands</code> -> 本地分支<code>commands</code>，并关联，然后切换到<code>commands</code>。</p>
   </div>
 </body>
 </html>
