@@ -12,4 +12,5 @@
 	br = branch
 	last = log -1
 	unstage = reset HEAD
+    ll = log --oneline
 	lg = log --graph --decorate -30 --all --date-order --date=format:'%Y-%m-%d %H:%M:%S' --pretty=format:'%C(cyan)%h%Creset %C(black bold)%ad%Creset%C(auto)%d %s'

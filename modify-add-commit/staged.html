@@ -13,7 +13,7 @@
 	
   <h4>工作区（Working Directory）</h4>
   <p>就是在电脑里能看到的目录，比如下图中<code>git-practice</code>文件夹就是一个工作区。</p>
-  <p><img src="images/staged/working-dir.PNG" alt="working-dir" /></p>
+  <p><img src="images/staged/working-dir.PNG" alt="working-dir" width="30%" /></p>
   
   <h4>版本库（Repository）</h4>
   <p>工作区有一个隐藏目录<code>.git</code>，这个不算工作区，而是 git 的版本库。</p>
@@ -31,7 +31,7 @@
   <p><img src="images/staged/readme-snapshot.PNG" alt="readme-snapshot" /></p>
   
   <p>(2) 在工作区新增一个<code>LICENSE</code>文本文件，用<code>git status</code>查看一下：</p>
-  <p><img src="images/staged/git-status-before-add.PNG" alt="git-status-before-add" /></p>
+  <p><img src="images/staged/git-status-before-add.PNG" alt="git-status-before-add" width="33% /></p>
   <p>可以看到：<code>readme.txt</code>被修改了，而<code>LICENSE</code>还从来没有被添加过，所以它的状态是<code>Untracked</code>。</p>
   
   <p>(3) 使用命令<code>git add</code>，把<code>readme.txt</code>和<code>LICENSE</code>都添加，用<code>git status</code>再查看一下：</p>
@@ -45,5 +45,8 @@
   <p>一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的。</p>
   <p>现在版本库变成了这样，暂存区就没有任何内容了：</p>
   <p><img src="images/staged/git-stage-after-commit.jpg" alt="git-stage-after-commit" /></p> 
+  
+  <h4>小结</h4>
+  <p><img src="images/staged/fields.png" alt="git-fields" width="35%" /></p> 
 </body>
 </html>
