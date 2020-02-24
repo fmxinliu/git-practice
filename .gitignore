@@ -1,8 +1,7 @@
 #dir
-branches/
+
 
 #files
-branch*.html
 Version.cs
 
 
