@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8" />
+  <title>解决冲突</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <h3>解决冲突</h3>
+  <div id="chapter">
+    <p>上一篇<a href="br-create-merge.html">《创建与合并分支》</a></p>
+    <p>下一篇<a href="br-manage.html">《分支管理策略》</a></p>
+  </div>
+  
+  <h3>原理</h3>
+  <div class="uk-alert">
+    <p>Git把每次的提交串成一条时间线（分支）。新建仓库不切换分支时，提交到<code>master</code>主分支上。<code>HEAD</code>严格来说不是指向提交，而是指向<code>master</code>，<code>master</code>才是指向提交的。所以，<code>HEAD</code>指向的就是当前分支。</p>
+  </div>
+  
+  <h3>例子</h3>
+  <p>① 新建并切换到<code>feature1</code>分支，修改<code>readme.txt</code>最后一行。</p>
+  <p><img src="images/fix-conflicts/br-on-feature1.PNG" alt="br-on-feature1"/></p>
+  
+  
+  <p>② 切换回<code>master</code>分支，修改<code>readme.txt</code>最后一行。</p>
+  <p><img src="images/fix-conflicts/br-on-master.PNG" alt="br-on-master"/></p>
+  <p>现在，<code>master</code>分支和<code>feature1</code>分支各自都分别有新的提交，变成了这样：</p>
+  <p><img src="images/fix-conflicts/git-br-feature1.png" alt="git-br-feature1"/></p>
+  
+  <p>③ 合并<code>feature1</code>分支到<code>master</code>分支。</p>
+  <p><img src="images/fix-conflicts/feature1-merge.PNG" alt="feature1-merge"/></p>
+  <p>合并冲突了！Git提示<code>readme.txt</code>文件存在冲突，必须手动解决冲突后再提交。<code>git status</code>也可以告诉我们冲突的文件：</p>
+  <p><img src="images/fix-conflicts/show-confilicts-files.PNG" alt="show-confilicts-files"/></p>
+  
+  <p>④ 查看冲突文件<code>readme.txt</code>，解决冲突后，再提交，合并完成。</p>
+  <p><img src="images/fix-conflicts/fix-confilicts-files.PNG" alt="show-confilicts-files"/></p>
+  
+  <p>现在，<code>master</code>分支和<code>feature1</code>分支变成了下图所示：</p>
+  <p><img src="images/fix-conflicts/git-br-conflict-merged.png" alt="git-br-conflict-merged"/></p>
+  
+  <p> 执行<code>git log --graph --pretty=oneline --abbrev-commit</code>查看分支合并情况：</p>
+  <p><img src="images/fix-conflicts/show-conflict-merged-log.PNG" alt="show-conflict-merged-log"/></p>
+  
+  <p>⑤ 删除<code>feature1</code>分支：<code>git branch -d feature1</code>。<p>
+</body>
+</html>
