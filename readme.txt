@@ -4,3 +4,4 @@ Git has a mutable index called staged.
 Git tracks changes of files.
 Creating a new branch is quick and simple.
 Fast forward merge mode.
+Common merge mode:creating a new commit.
