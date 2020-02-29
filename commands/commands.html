@@ -97,5 +97,11 @@
   <p><code>git push -d origin &lt;branch_name&gt;</code> - 删除远程 branch_name 分支。<a href="images/13.git-push-3.PNG">例3</a></p>
   <hr>
   
+  <h3>(14) git merge - 合并分支</h3>
+  <h4>典型使用：</h4>
+  <p><code>git merge &lt;branch_name&gt;</code> - 合并 branch_name 分支到当前分支。如果当前分支相对 branch_name 分支没有提交，使用 fast-forward 方式合并。<a href="images/14-1.git-br-ff-merge.png">例1</a></p>
+  <p><code>git merge &lt;branch_name&gt; --no-ff -m &lt;message&gt;</code> - 禁用 fast-forward，合并 branch_name 分支到当前分支，并重新 commmit 一次。<a href="images/14-2.git-br-no-ff-merge.png">例2</a></p>
+  <hr>
+  
 </body>
 </html>
