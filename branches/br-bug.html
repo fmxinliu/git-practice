@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8" />
+  <title>Bug分支</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <h3>Bug分支</h3>
+  <div id="chapter">
+    <p>上一篇<a href="br-create-merge.html">《创建与合并分支》</a></p>
+    <p>下一篇<a href="br-manage.html">《分支管理策略》</a></p>
+  </div>
+  <hr/>
+  
+  <!-- <h3>如何修复Bug</h3> -->
+  
+  <b>例1</b>
+  <p>① 查看所有分支状态：</p>
+  <p><img src="images/br-bug/br-status-init.PNG" alt="br-status-init"/></p>
+  <p>可以看到，所有分支都是“干净的”。</p>
+  
+  <p>② 切换到主线<code>master</code>分支，新建并切换到<code>dev</code>分支，创建文件<code>br-bug.html</code>，并加入到暂存区：</p>
+  <p><img src="images/br-bug/br-dev-add.PNG" alt="br-dev-add"/></p>
+  
+  <p>③ 再次查看所有分支状态：</p>
+  <p><img src="images/br-bug/br-status-after-dev-add.PNG" alt="br-status-after-dev-add"/></p>
+  <p>可以看到，所有分支都被“污染”，修改是完全相同的，正是<code>dev</code>分支添加到暂存区，但未提交的<code>br-bug.html</code>文件。</p>
+  
+  <div class="uk-alert">
+    <p><b>结论一：</b>如果有分支还在开发中，暂存区有未提交的修改。这时，不能直接切换到主线新建<code>Bug</code>分支，去修复<code>bug</code>。</p>
+  </div>
+  
+  <b>例2</b>
+  <p>想象，当你接到一个修复一个代号<code>101</code>的<code>bug</code>的任务时，很自然地，你想创建一个分支<code>issue-101</code>来修复它。但是，等等，当前正在<code>dev</code>上进行的工作还没有提交：</p>
+  <p><img src="images/br-bug/br-dev-status-after-modify.PNG" alt="br-dev-status-after-modify"/></p>
+  <p>并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需<code>1</code>天时间，但是，必须在<code>2h</code>内修复该<code>bug</code>。结论一告诉我们，<b>无法直接新建分支来修复<code>bug</code></b>，怎么办？</p>
+  
+  <div class="uk-alert">
+    <p><b>结论二：</b>如果有分支还在开发中，有未提交的修改。可按如下步骤修复主线<code>bug</code>：</p>
+    <p>◆ 执行<code>git stash</code>保存当前的开发现场。现在，用<code>git status</code>查看工作区，就是“干净的”（<b>除非有没有被<code>Git</code>管理的文件</b>）。<em><a href="images/br-bug/br-dev-stash.PNG">步骤1</a></em></p>
+    <p>◆ 确定要在哪个分支上修复<code>bug</code>，切换到该分支。然后，创建新分支，在新分支上修复<code>bug</code>。最后，将新分支合并到要修复<code>bug</code>的分支上，并删除新分支。<em><a href="images/br-bug/br-bug-fix.PNG">步骤2</a></em></p>
+    <p>◆ 切换回最初的开发分支，执行<code>git stash pop</code>，恢复保存的开发现场。<em><a href="images/br-bug/br-stash-pop.PNG">步骤3</a></em></p>
+  </div>
+</body>
+</html>
