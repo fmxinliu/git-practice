@@ -26,7 +26,7 @@
   
   <p>③ 再次查看所有分支状态：</p>
   <p><img src="images/br-bug/br-status-after-dev-add.PNG" alt="br-status-after-dev-add"/></p>
-  <p>可以看到，所有分支都被“污染”，修改是完全相同的，正是<code>dev</code>分支添加到暂存区，但未提交的<code>br-bug.html</code>文件。</p>
+  <p>可以看到，所有分支都被“污染”了，修改是完全相同的，正是<code>dev</code>分支添加到暂存区，但未提交的<code>br-bug.html</code>文件。</p>
   
   <div class="uk-alert">
     <p><b>结论一：</b>如果有分支还在开发中，暂存区有未提交的修改。这时，不能直接切换到主线新建<code>Bug</code>分支，去修复<code>bug</code>。</p>
@@ -42,6 +42,13 @@
     <p>◆ 执行<code>git stash</code>保存当前的开发现场。现在，用<code>git status</code>查看工作区，就是“干净的”（<b>除非有没有被<code>Git</code>管理的文件</b>）。<em><a href="images/br-bug/br-dev-stash.PNG">步骤1</a></em></p>
     <p>◆ 确定要在哪个分支上修复<code>bug</code>，切换到该分支。然后，创建新分支，在新分支上修复<code>bug</code>。最后，将新分支合并到要修复<code>bug</code>的分支上，并删除新分支。<em><a href="images/br-bug/br-bug-fix.PNG">步骤2</a></em></p>
     <p>◆ 切换回最初的开发分支，执行<code>git stash pop</code>，恢复保存的开发现场。<em><a href="images/br-bug/br-stash-pop.PNG">步骤3</a></em></p>
+  </div>
+  
+  <b>例3</b>
+  <div class="uk-alert">
+    <p><b>结论三：</b>如果同样的<code>bug</code>在<code>master</code>分支已经修复过了，如何将主线所做的修改“复制”（<b>并不是<code>merge</code></b>）到<code>dev</code>分支？<em><a href="images/br-bug/br-cherry-pick.PNG">示例</a></em></p>
+    <p>◆ 执行<code>git log --graph --pretty=oneline --abbrev-commit master -4</code>，查找<code>master</code>合并的<code>Bug</code>分支提交。</p>
+    <p>◆ 执行<code>git cherry-pick &lt;hash_code&gt;</code>，复制<code>Bug</code>分支所做的修改到当前分支。</p>
   </div>
 </body>
 </html>
