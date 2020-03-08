@@ -1,0 +1,20 @@
+/*
+ * 1. Address odd `em`-unit font size rendering in all browsers.
+ * 2. Consolas has a better baseline in running text compared to `Courier`
+ */
+:not(pre) > code,
+:not(pre) > kbd,
+:not(pre) > samp {
+  /* 1 */
+  font-size: 12px;
+  /* 2 */
+  font-family: Consolas, monospace, serif;
+  /* 3 */
+  color: #dd0055;
+  white-space: nowrap;
+  padding: 0 4px;
+  border: 1px solid #dddddd;
+  /* border-radius: 3px; */
+  /* background: #fafafa; */
+  /* white-space: normal; */
+}
