@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8" />
+  <title>多人协作</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <h3>多人协作</h3>
+  <div id="chapter">
+    <p>上一篇<a href="br-feature.html">《Feature分支》</a></p>
+    <p>下一篇<a href="rebase.html">《Rebase》</a></p>
+  </div>
+  <hr/>
+
+  <h3>查看远程库</h3>
+  <div class="uk-alert">当你从远程仓库克隆时，实际上<code>Git</code>自动把本地的<code>master</code>分支和远程的<code>master</code>分支对应起来了，并且，远程仓库的默认名称是<code>origin</code>。</div>
+  <p><img src="images/collaboration-development/git-remote-v.PNG" alt="git-remote-v"/></p>
+  <p>如果没有推送权限，就看不到<code>push</code>的地址。</p>
+  
+  <h3>推送分支</h3>
+  <p>推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，<code>Git</code>就会把该分支推送到远程库对应的远程分支上。比如推送<code>master</code>分支：</p>
+  <div class="uk-alert"><code>git push origin master</code></div>
+  <p>如果要推送其他分支，比如<code>dev</code>，就改成：</p>
+  <div class="uk-alert"><code>git push origin dev</code></div>
+  <p>但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？</p>
+  <p>◆ <code>master</code>分支是主分支，因此要时刻与远程同步；</p>
+  <p>◆ <code>dev</code>分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</p>
+  <p>◆ <code>bug</code>分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</p>
+  <p>◆ <code>feature</code>分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</p>
+  
+  <h3>抓取分支</h3>
+  <div class="uk-alert">多人协作时，大家都会往<code>master</code>和<code>dev</code>分支上推送各自的修改。</div>
+  <p>现在，模拟一个小伙伴，可以在另一台电脑（<b>注意要把<code>SSH Key</code>添加到<code>GitHub</code></b>）或者在同一台电脑的另一个目录下克隆：</p>
+  <p><img src="images/collaboration-development/git-clone-by-friend.PNG" alt="git-clone-by-friend"/></p>
+  
+  <p>当你的小伙伴从远程库<code>clone</code>时，默认情况下，只能看到本地的<code>master</code>分支：</p>
+  <p><img src="images/collaboration-development/git-branch-by-friend.PNG" alt="git-branch-by-friend"/></p>
+  
+  <p>你的小伙伴要在<code>dev</code>分支上开发，就必须创建远程<code>origin</code>的<code>dev</code>分支到本地：</p>
+  <p><img src="images/collaboration-development/git-checkout-by-friend.PNG" alt="git-checkout-by-friend"/></p>
+  
+  <p>现在，他就可以在<code>dev</code>上修改，并把<code>dev</code>分支<code>push</code>到远程：</p>
+  <p><img src="images/collaboration-development/git-push-by-friend.PNG" alt="git-push-by-friend"/></p>
+  
+  <p>你的小伙伴已经向<code>origin/dev</code>分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：</p>
+  <p><img src="images/collaboration-development/git-push-by-yourself.PNG" alt="git-push-by-yourself"/></p>
+  
+  <p>推送失败！<b>因为远程分支比你的本地分支提交超前</b>。根据提示，先用<code>git pull</code>把最新的提交从<code>origin/dev</code>抓下来，然后在本地合并，解决冲突后再推送：</p>
+  <p><img src="images/collaboration-development/git-pull.PNG" alt="git-pull"/></p>
+  
+  <p><code>git pull</code>也失败了！<b>原因是没有指定本地<code>dev</code>分支与远程<code>origin/dev</code>分支的链接</b>。根据提示，设置<code>dev</code>和<code>origin/dev</code>的链接：</p>
+  <p><img src="images/collaboration-development/br-link.PNG" alt="br-link"/></p>
+  
+  <p>再次<code>git pull</code>：</p>
+  <p><img src="images/collaboration-development/git-pull-again.PNG" alt="git-pull-again"/></p>
+  
+  <p><code>git pull</code>又失败了！<b>原因是合并有冲突</b>。根据提示，需要手动解决，解决的方法和分支管理中的解决冲突完全一样。解决后，提交，再<code>push</code>：</p>
+  <p><img src="images/collaboration-development/git-push-again-by-yourself.PNG" alt="git-push-again-by-yourself"/></p>
+  
+  <div class="uk-alert">
+    <b>多人协作的工作模式通常是这样：</b>
+    <ol>
+      <li>
+        <p>首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；</p>
+      </li>
+      <li>
+        <p>如果推送失败，则因为远程分支比你的本地分支提交超前，需要先用<code>git pull</code>试图合并；如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，执行命令 <code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</code>。</p>
+      </li>
+      <li>
+        <p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+      </li>
+      <li>
+        <p>没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功！</p>
+      </li>
+    </ol>
+  </dev>
+</body>
+</html>
