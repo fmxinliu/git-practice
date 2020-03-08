@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+  <meta charset="utf-8" />
+  <title>rebase</title>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <h3>rebase</h3>
+  <div id="chapter">
+    <p>上一篇<a href="collaboration-development.html">《多人协作》</a></p>
+  </div>
+  <hr/>
+
+  <p>在和远程分支同步后，我们对<code>readme.txt</code>这个文件做了提交，查看提交历史：</p>
+  <p><img src="images/rebase/git-log-after-commit.PNG" alt="git-log-after-commit"/></p>
+  
+  <p>现在，我们尝试推送本地分支：</p>
+  <p><img src="images/rebase/git-push.PNG" alt="git-push"/></p>
+  
+  <p>推送失败，尝试拉取远程分支到本地，进行合并：</p>
+  <p><img src="images/rebase/git-pull.PNG" alt="git-pull"/></p>
+  
+  <p>合并后，查看当前分支的状态：</p>
+  <p><img src="images/rebase/git-status.PNG" alt="git-status"/></p>
+  
+  <p>合并后，查看当前分支的提交历史：</p>
+  <p><img src="images/rebase/git-log-after-pull.PNG" alt="git-log-after-pull"/></p>
+  <div class="uk-alert">可以看到<b>提交历史分叉了</b>，如果现在把本地分支<code>push</code>到远程，远程分支的提交历史也就分叉了，<em><b>怎么把分叉的提交变成直线呢？</b></em></div>
+  
+  <p>执行命令<code>git rebase</code>：</p>
+  <p><img src="images/rebase/git-rebase.PNG" alt="git-rebase"/></p>
+  
+  <p>变基后，查看当前分支的提交历史：</p>
+  <p><img src="images/rebase/git-log-after-rebase.PNG" alt="git-log-after-rebase"/></p>
+  <p>这就是<code>rebase</code>操作的特点：把分叉的提交历史“整理”成一条直线，看上去更直观。缺点是本地的分叉提交已经被修改过了。</p>
+  
+  <p>最后，通过<code>push</code>操作把本地分支推送到远程：</p>
+  <p><img src="images/rebase/git-push-after-rebase.PNG" alt="git-push-after-rebase"/></p>
+  
+  <p>推送后，查看提交历史：</p>
+  <p><img src="images/rebase/git-log-after-push.PNG" alt="git-log-after-push"/></p>
+</body>
+</html>
