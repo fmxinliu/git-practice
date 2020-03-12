@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# format: GIT_TAG_INFO=master_v1.0.19-2-g841c059-dirty
+# git describe format: master_v1.0.19-2-g841c059-dirty
 GIT_TAG_INFO=`git describe --dirty`
 GIT_TAG_PARTS=`echo $GIT_TAG_INFO| grep -o - | wc -l`
 
