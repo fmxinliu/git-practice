@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 # detail information format : SVN_V01.00.00.2554-24-geda375fb
 version_detail=SVN_V01.00.00.2554-24-geda375fb
 #version_detail=$(git describe)
