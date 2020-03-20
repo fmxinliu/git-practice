@@ -64,6 +64,7 @@
   <p><code>git checkout -- &lt;file&gt;</code> - 撤销工作区 file 文件的修改，回退到暂存区/版本库中的版本。<em><a href="images/9.git-checkout-1.PNG">例1</a>，<a href="images/9.git-checkout-2.PNG">例2</a></em></p>
   <p><code>git checkout &lt;branch_name&gt;</code> - 切换分支。</p>
   <p><code>git checkout -b &lt;branch_name&gt;</code> - 创建 + 切换分支。<a href="images/9.git-checkout-3.PNG"><em>例3</em></a></p>
+  <p><code>git checkout -b &lt;branch_name&gt; &lt;hash_code&gt;</code> - 创建 + 切换分支（从指定的提交分支）。<a href="images/9.git-checkout-4.PNG"><em>例4</em></a></p>
   <hr>
   
   <h3>(10) <a href="images/10.git-branch.PNG"><em>git branch</em></a> - 查看/创建/删除分支</h3></em>
@@ -77,10 +78,17 @@
   <h3>(11) <a href="images/11.git-tag.PNG"><em>git tag</em></a> - 创建/删除标签</h3>
   <h4>典型使用：</h4>
   <p><code>git tag</code> - 查看所有标签(<strong>标签不是按时间顺序列出，而是按字母排序的</strong>)。</p>
+  <p><code>git show &lt;tag_name&gt;</code> - 查看标签指定版本的提交信息。<a href="images/11.git-tag-show.PNG"><em>例1</em></a></p>
   <p><code>git tag -a &lt;tag_name&gt; -m &lt;commit_info&gt;</code> - [创建+]指定标签信息。</p>
-  <p><code>git tag -d &lt;tag_name&gt;</code> - 删除指定标签。</p>
-  <p><code>git tag -n &lt;tag_name&gt;</code> - 查看指定标签信息。</p>
-  <p><code>git show &lt;tag_name&gt;</code> - 查看指定标签对应版本的提交信息。<a href="images/11.git-tag-show.PNG"><em>例</em></a></p>
+  <p><code>git tag -n &lt;tag_name&gt;</code> - 查看标签信息。</p>
+  <p><code>git tag -d &lt;tag_name&gt;</code> - 删除指定的本地标签。</p>
+  <p><code>git tag -d $(git tag -l)</code> - 删除所有本地标签。<a href="images/11.git-delete-all-tags.PNG"><em>例2</em></a></p>
+  <p><b>标签的综合操作：</b><em>
+    <a href="images/11.git-delete-all-local-tags.PNG">删除所有本地标签</a> <code>-></code>
+    <a href="images/11.git-pull-remote-tags.PNG">拉取远程标签</a> <code>-></code>
+    <a href="images/11.git-delete-all-remote-tags.PNG">删除所有远程标签</a> <code>-></code>
+    <a href="images/11.git-delete-some-local-tags.PNG">批量删除本地标签</a> <code>。</code>
+  </em></p>
   <hr>
   
   <h3>(12) <a href="images/12.git-remote.PNG"><em>git remote</em></a> - 关联/解除关联远程仓库</h3>
@@ -92,9 +100,10 @@
   
   <h3>(13) git push - 向远程仓库推送修改</h3>
   <h4>典型使用：</h4>
-  <p><code>git push origin &lt;branch_name&gt;</code> - 推送本地当前分支到远程仓库 origin 指定的分支 branch_name。<a href="images/13.git-push-1.PNG"><em>例1</em></a></p>
-  <p><code>git push -u origin &lt;branch_name&gt;</code> - 将本地的 branch_name 分支推送到远程仓库 origin 的对应分支，同时指定 origin 为默认远程仓库，后面就可以使用<code>git push</code>推送分支修改到远程库了。<a href="images/13.git-push-2.PNG"><em>例2</em></a></p>
-  <p><code>git push -d origin &lt;branch_name&gt;</code> - 删除远程 branch_name 分支。<a href="images/13.git-push-3.PNG"><em>例3</em></a></p>
+  <p><code>git push origin &lt;name&gt;</code> - 推送当前分支、标签到远程仓库。<a href="images/13.git-push-branch.PNG"><em>例1</em></a>，<a href="images/13.git-push-tag.PNG"><em>例2</em></a></p>
+  <p><code>git push -u origin &lt;branch_name&gt;</code> - 将本地的 branch_name 分支推送到远程仓库 origin 的对应分支，同时指定 origin 为默认远程仓库，后面就可以使用<code>git push</code>推送分支修改到远程库了。<a href="images/13.git-push-u.PNG"><em>例3</em></a></p>
+  <p><code>git push -d origin &lt;name&gt;</code> - 删除远程分支、标签。<a href="images/13.git-push-delete-branch.PNG"><em>例4</em></a>，<a href="images/13.git-push-delete-tag.PNG"><em>例5</em></a></p>
+  <p><code>git push origin :&lt;name&gt;</code> - 删除远程分支、标签。<a href="images/13.git-push-empty-delete-branch.PNG"><em>例6</em></a>，<a href="images/13.git-push-empty-delete-tag.PNG"><em>例7</em></a></p>
   <hr>
   
   <h3>(14) git merge - 合并分支</h3>
