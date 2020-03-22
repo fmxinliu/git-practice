@@ -8,7 +8,7 @@
 
 * `modify-add-commit` → 增、删、改基本操作
 
-* `tag` → 标签
+* `tag` → 标签的使用
 
 * `build-version` → 使用标签生成软件版本
 
