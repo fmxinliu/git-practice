@@ -23,3 +23,5 @@
 * *[bash/shell脚本编程](https://www.jianshu.com/p/5568d311fb5a)*
 
 * *[README.md基本语法](https://www.jianshu.com/p/8af597957fe2)*
+
+* *[Git换行符设置](https://blog.csdn.net/CaoQiuBoll/article/details/88072763)*
