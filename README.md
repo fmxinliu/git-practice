@@ -25,3 +25,5 @@
 * *[README.md基本语法](https://www.jianshu.com/p/8af597957fe2)*
 
 * *[Git换行符设置](https://blog.csdn.net/CaoQiuBoll/article/details/88072763)*
+
+* *[Git和Windows的大小写不敏感产生的问题](https://blog.csdn.net/weixin_43719606/article/details/104788347)*
