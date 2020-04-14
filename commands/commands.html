@@ -103,7 +103,7 @@
   <h3>(13) git push - 向远程仓库推送修改</h3>
   <h4>典型使用：</h4>
   <p><code>git push origin &lt;name&gt;</code> - 推送当前分支、标签到远程仓库。<a href="images/13.git-push-branch.PNG"><em>例1</em></a>，<a href="images/13.git-push-tag.PNG"><em>例2</em></a></p>
-  <p><code>git push -u origin &lt;branch_name&gt;</code> - 将本地的 branch_name 分支推送到远程仓库 origin 的对应分支，同时指定 origin 为默认远程仓库，后面就可以使用<code>git push</code>推送分支修改到远程库了。<a href="images/13.git-push-u.PNG"><em>例3</em></a></p>
+  <p><code>git push -u origin &lt;name&gt;</code> - 将本地的 name 分支推送到远程仓库 origin 的对应分支，同时指定 origin 为默认远程仓库，后面就可以使用<code>git push</code>推送分支修改到远程库了。<a href="images/13.git-push-u.PNG"><em>例3</em></a></p>
   <p><code>git push -d origin &lt;name&gt;</code> - 删除远程分支、标签。<a href="images/13.git-push-delete-branch.PNG"><em>例4</em></a>，<a href="images/13.git-push-delete-tag.PNG"><em>例5</em></a></p>
   <p><code>git push origin :&lt;name&gt;</code> - 删除远程分支、标签。<a href="images/13.git-push-empty-delete-branch.PNG"><em>例6</em></a>，<a href="images/13.git-push-empty-delete-tag.PNG"><em>例7</em></a></p>
   <hr>
@@ -132,5 +132,10 @@
   <h3>(18) git mv - 移动/重命名文件(夹)</h3>
   <h4>典型使用：</h4>
   <p><code>git mv &lt;source&gt; &lt;destination&gt;</code> - <a href="images/18.git-mv.PNG"><em>重命名文件(夹)</em></a>。</p>
+  <hr>
+    
+  <h3>(19) git fetch - 更新远程分支到本地（只存储，不合并）</h3>
+  <h4>典型使用：</h4>
+  <p><code>git fetch origin &lt;branch_name&gt;</code> - <a href="images/19.git-fetch.PNG"><em>更新远程分支到本地，但不合并</em></a>。</p>
 </body>
 </html>
