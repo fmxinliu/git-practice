@@ -44,7 +44,11 @@
   
   <h3>(6) <a href="images/6.git-log.PNG"><em>git log</em></a> - 查看提交历史（类似 <b>svn log</b>）</h3>
   <h4>典型使用：</h4>
-  <p><code>git log --oneline</code> - 一行显示一次提交。</p>
+  <p><code>git log --oneline</code> - 一行显示一条提交记录。</p>
+  <p><code>git log -&lt;n&gt;</code> - 显示最新 n 条提交记录。</p>
+  <p><code>git log -- &lt;file_name&gt;</code> - 查看指定文件的提交记录。</p>
+  <p><code>git log -p -- &lt;file_name&gt;</code> - 查看指定文件，每次提交的内容差异。</p>
+  <p><code>git log --graph</code> - 查看提交树，根据提交时间，以树形显示各分支提交记录。</p>
   <hr>
   
   <h3>(7) git reset - 版本回退</h3>
