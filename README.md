@@ -12,6 +12,8 @@
 
 * `build-version` → 使用标签生成软件版本
 
+* `fetch vs pull` → 获取远程分支方式对比
+
 <br/>
 
 #### 致谢

@@ -44,7 +44,11 @@
   
   <h3>(6) <a href="images/6.git-log.PNG"><em>git log</em></a> - 查看提交历史（类似 <b>svn log</b>）</h3>
   <h4>典型使用：</h4>
-  <p><code>git log --oneline</code> - 一行显示一次提交。</p>
+  <p><code>git log --oneline</code> - 一行显示一条提交记录。</p>
+  <p><code>git log -&lt;n&gt;</code> - 显示最新 n 条提交记录。</p>
+  <p><code>git log -- &lt;file_name&gt;</code> - 查看指定文件的提交记录。</p>
+  <p><code>git log -p -- &lt;file_name&gt;</code> - 查看指定文件，每次提交的内容差异。</p>
+  <p><code>git log --graph</code> - 查看提交树，根据提交时间，以树形图形式显示提交记录。</p>
   <hr>
   
   <h3>(7) git reset - 版本回退</h3>
@@ -73,16 +77,18 @@
   <p><code>git branch &lt;branch_name&gt;</code> - 创建分支（但不会切换到新分支）。</p>
   <p><code>git branch -d &lt;branch_name&gt;</code> - 删除已合并的分支。</p>
   <p><code>git branch -D &lt;branch_name&gt;</code> - <a href="images/10.git-branch-D.PNG">删除未合并的分支</a>。</p>
+  <p><code>git branch -v</code> - <a href="images/10.git-branch-v.PNG">显示本地每个分支的最后一笔提交</a>。</p>
+  <p><code>git branch -vv</code> - <a href="images/10.git-branch-vv.PNG">显示本地每个分支的最后一笔提交，以及与远程分支的映射关系</a>。</p>
   <hr>
   
   <h3>(11) <a href="images/11.git-tag.PNG"><em>git tag</em></a> - 创建/删除标签</h3>
   <h4>典型使用：</h4>
   <p><code>git tag</code> - 查看所有标签(<strong>标签不是按时间顺序列出，而是按字母排序的</strong>)。</p>
-  <p><code>git show &lt;tag_name&gt;</code> - 查看标签指定版本的提交信息。<a href="images/11.git-tag-show.PNG"><em>例1</em></a></p>
+  <p><code>git show &lt;tag_name&gt;</code> - <a href="images/11.git-tag-show.PNG"><em>查看标签指定版本的提交信息</em></a>。</p>
   <p><code>git tag -a &lt;tag_name&gt; -m &lt;commit_info&gt;</code> - [创建+]指定标签信息。</p>
   <p><code>git tag -n &lt;tag_name&gt;</code> - 查看标签信息。</p>
   <p><code>git tag -d &lt;tag_name&gt;</code> - 删除指定的本地标签。</p>
-  <p><code>git tag -d $(git tag -l)</code> - 删除所有本地标签。<a href="images/11.git-delete-all-tags.PNG"><em>例2</em></a></p>
+  <p><code>git tag -d $(git tag -l)</code> - <a href="images/11.git-delete-all-tags.PNG"><em>删除所有本地标签</em></a>。</p>
   <p><b>标签的综合操作：</b><em>
     <a href="images/11.git-delete-all-local-tags.PNG">删除所有本地标签</a> <code>-></code>
     <a href="images/11.git-pull-remote-tags.PNG">拉取远程标签</a> <code>-></code>
@@ -101,7 +107,7 @@
   <h3>(13) git push - 向远程仓库推送修改</h3>
   <h4>典型使用：</h4>
   <p><code>git push origin &lt;name&gt;</code> - 推送当前分支、标签到远程仓库。<a href="images/13.git-push-branch.PNG"><em>例1</em></a>，<a href="images/13.git-push-tag.PNG"><em>例2</em></a></p>
-  <p><code>git push -u origin &lt;branch_name&gt;</code> - 将本地的 branch_name 分支推送到远程仓库 origin 的对应分支，同时指定 origin 为默认远程仓库，后面就可以使用<code>git push</code>推送分支修改到远程库了。<a href="images/13.git-push-u.PNG"><em>例3</em></a></p>
+  <p><code>git push -u origin &lt;name&gt;</code> - 将本地的 name 分支推送到远程仓库 origin 的对应分支，同时指定 origin 为默认远程仓库，后面就可以使用<code>git push</code>推送分支修改到远程库了。<a href="images/13.git-push-u.PNG"><em>例3</em></a></p>
   <p><code>git push -d origin &lt;name&gt;</code> - 删除远程分支、标签。<a href="images/13.git-push-delete-branch.PNG"><em>例4</em></a>，<a href="images/13.git-push-delete-tag.PNG"><em>例5</em></a></p>
   <p><code>git push origin :&lt;name&gt;</code> - 删除远程分支、标签。<a href="images/13.git-push-empty-delete-branch.PNG"><em>例6</em></a>，<a href="images/13.git-push-empty-delete-tag.PNG"><em>例7</em></a></p>
   <hr>
@@ -114,11 +120,11 @@
   
   <h3>(15) git stash - 保存/恢复未提交的修改</h3>
   <h4>典型使用：</h4>
-  <p><code>git stash</code> - 保存未提交的修改。<a href="images/15-1.git-stash.PNG"><em>例1</em></a></p>
-  <p><code>git stash list</code> - 列出当前保存的记录。<a href="images/15-2.git-stash-list.PNG"><em>例2</em></a></p>
-  <p><code>git stash pop &lt;stash@{n}&gt;</code> - 恢复保存的修改，并删除该条记录。<a href="images/15-3.git-stash-pop.PNG"><em>例3</em></a></p>
-  <p><code>git stash apply &lt;stash@{n}&gt;</code> - 只恢复保存的修改，不删除记录。<a href="images/15-4.git-stash-apply.PNG"><em>例4</em></a></p>
-  <p><code>git stash drop &lt;stash@{n}&gt;</code> - 删除记录。<a href="images/15-5.git-stash-drop.PNG"><em>例5</em></a></p>
+  <p><code>git stash</code> - <a href="images/15-1.git-stash.PNG"><em>保存未提交的修改</em></a>。</p>
+  <p><code>git stash list</code> - <a href="images/15-2.git-stash-list.PNG"><em>列出当前保存的记录</em></a>。</p>
+  <p><code>git stash pop &lt;stash@{n}&gt;</code> - <a href="images/15-3.git-stash-pop.PNG"><em>恢复保存的修改，并删除该条记录</em></a>。</p>
+  <p><code>git stash apply &lt;stash@{n}&gt;</code> - <a href="images/15-4.git-stash-apply.PNG"><em>只恢复保存的修改，不删除记录</em></a>。</p>
+  <p><code>git stash drop &lt;stash@{n}&gt;</code> - <a href="images/15-5.git-stash-drop.PNG"><em>删除记录</em>。</a></p>
   <hr>
   
   <h3>(16) git cherry-pick - 复制其他分支的修改（<em>只是复制某些修改，并不是合并分支</em>），避免重复劳动</h3>
@@ -129,6 +135,16 @@
   
   <h3>(18) git mv - 移动/重命名文件(夹)</h3>
   <h4>典型使用：</h4>
-  <p><code>git mv &lt;source&gt; &lt;destination&gt;</code> - 重命名文件(夹)。<a href="images/18.git-mv.PNG"><em>例1</em></a></p>
+  <p><code>git mv &lt;source&gt; &lt;destination&gt;</code> - <a href="images/18.git-mv.PNG"><em>重命名文件(夹)</em></a>。</p>
+  <hr>
+    
+  <h3>(19) git fetch - 更新远程分支到本地（只存储，不合并）</h3>
+  <h4>典型使用：</h4>
+  <p><code>git fetch origin &lt;branch&gt;</code> - <a href="images/19.git-fetch.PNG"><em>更新远程 origin/branch 分支到本地，但不合并</em></a>。</p>
+  <hr>
+  
+  <h3>(20) git pull - 更新远程分支到本地，并合并</h3>
+  <h4>典型使用：</h4>
+  <p><code>git pull origin &lt;branch&gt;</code> - <a href="images/20.git-pull.PNG"><em>更新远程 origin/branch 分支到本地，并与本地分支合并</em></a>。</p>
 </body>
 </html>
