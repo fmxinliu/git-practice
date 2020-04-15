@@ -48,7 +48,7 @@
   <p><code>git log -&lt;n&gt;</code> - 显示最新 n 条提交记录。</p>
   <p><code>git log -- &lt;file_name&gt;</code> - 查看指定文件的提交记录。</p>
   <p><code>git log -p -- &lt;file_name&gt;</code> - 查看指定文件，每次提交的内容差异。</p>
-  <p><code>git log --graph</code> - 查看提交树，根据提交时间，以树形显示各分支提交记录。</p>
+  <p><code>git log --graph</code> - 查看提交树，根据提交时间，以树形图形式显示提交记录。</p>
   <hr>
   
   <h3>(7) git reset - 版本回退</h3>
@@ -140,6 +140,11 @@
     
   <h3>(19) git fetch - 更新远程分支到本地（只存储，不合并）</h3>
   <h4>典型使用：</h4>
-  <p><code>git fetch origin &lt;branch_name&gt;</code> - <a href="images/19.git-fetch.PNG"><em>更新远程分支到本地，但不合并</em></a>。</p>
+  <p><code>git fetch origin &lt;branch&gt;</code> - <a href="images/19.git-fetch.PNG"><em>更新远程 origin/branch 分支到本地，但不合并</em></a>。</p>
+  <hr>
+  
+  <h3>(20) git pull - 更新远程分支到本地，并合并</h3>
+  <h4>典型使用：</h4>
+  <p><code>git pull origin &lt;branch&gt;</code> - <a href="images/20.git-pull.PNG"><em>更新远程 origin/branch 分支到本地，并与本地分支合并</em></a>。</p>
 </body>
 </html>
