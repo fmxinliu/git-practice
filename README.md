@@ -22,12 +22,14 @@
 
 * *[git merge篇](https://blog.csdn.net/weixin_44018338/article/details/98881164)*
 
+* *[git fetch & git pull](https://blog.csdn.net/qq_42780289/article/details/98049574)*
+
 * *[bash/shell脚本编程](https://www.jianshu.com/p/5568d311fb5a)*
 
 * *[README.md基本语法](https://www.jianshu.com/p/8af597957fe2)*
 
 * *[Git换行符设置](https://blog.csdn.net/CaoQiuBoll/article/details/88072763)*
 
-* *[Git和Windows的大小写不敏感产生的问题](https://blog.csdn.net/weixin_43719606/article/details/104788347)*
+* *[Git优雅处理换行符](https://www.jianshu.com/p/fa4d5963b6c8)*
 
-* *[git fetch & git pull](https://blog.csdn.net/qq_42780289/article/details/98049574)*
+* *[Git和Windows的大小写不敏感产生的问题](https://blog.csdn.net/weixin_43719606/article/details/104788347)*
