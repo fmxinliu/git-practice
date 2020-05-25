@@ -107,6 +107,9 @@
   <p><code>git remote -v</code> - 查看关联的远程仓库。</p>
   <p><code>git remote add origin &lt;remote_repo_url&gt;</code> - 本地仓库关联远程仓库 origin。</p>
   <p><code>git remote rm &lt;remote_name&gt;</code> - 删除指定的远程仓库的关联。</p>
+  <p><code>git remote update origin --prune</code> - <a href="images/12.git-remote-update.PNG"><em>清理远程已删除分支在本地的记录</em></a>。</p>
+  <p><code>git remote prune origin --dry-run</code> - 方法一：<a href="images/12.git-remote-prune.PNG"><em>查看需要清理的远程分支记录</em></a>。</p>
+  <p><code>git remote prune origin -n</code> -  方法二：<a href="images/12.git-remote-prune.PNG"><em>查看需要清理的远程分支记录</em></a>。</p>
   <hr>
   
   <h3>(13) git push - 向远程仓库推送修改</h3>
