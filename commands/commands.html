@@ -25,6 +25,7 @@
   </ul>
   <h4>典型使用：</h4>
   <p><code>git clone -b &lt;branch&gt; &lt;repo&gt; &lt;directory&gt;</code> - <a href="images/2.git-clone-b.PNG">克隆分支</a>。</p>
+  <p><code>git clone    &lt;repo&gt; &lt;directory&gt; --bare</code> - 克隆裸仓库。</p>
   <hr>
   
   <h3>(3) <a href="images/3.git-status.PNG"><em>git status</em></a> - 查看上次提交之后是否有修改</h3>
@@ -82,6 +83,7 @@
   <p><code>git branch &lt;branch_name&gt;</code> - 创建分支（但不会切换到新分支）。</p>
   <p><code>git branch -d &lt;branch_name&gt;</code> - 删除已合并的分支。</p>
   <p><code>git branch -D &lt;branch_name&gt;</code> - <a href="images/10.git-branch-D.PNG">删除未合并的分支</a>。</p>
+  <p><code>git branch -m &lt;old_name&gt; &lt;new_name&gt;</code> - <a href="images/10.git-branch-m.PNG">更改分支名字</a>。</p>
   <p><code>git branch -v</code> - <a href="images/10.git-branch-v.PNG">显示本地每个分支的最后一笔提交</a>。</p>
   <p><code>git branch -vv</code> - <a href="images/10.git-branch-vv.PNG">显示本地每个分支的最后一笔提交，以及与远程分支的映射关系</a>。</p>
   <hr>
@@ -118,6 +120,8 @@
   <p><code>git push -u origin &lt;name&gt;</code> - 将本地的 name 分支推送到远程仓库 origin 的对应分支，同时指定 origin 为默认远程仓库，后面就可以使用<code>git push</code>推送分支修改到远程库了。<a href="images/13.git-push-u.PNG"><em>例3</em></a></p>
   <p><code>git push -d origin &lt;name&gt;</code> - 删除远程分支、标签。<a href="images/13.git-push-delete-branch.PNG"><em>例4</em></a>，<a href="images/13.git-push-delete-tag.PNG"><em>例5</em></a></p>
   <p><code>git push origin :&lt;name&gt;</code> - 删除远程分支、标签。<a href="images/13.git-push-empty-delete-branch.PNG"><em>例6</em></a>，<a href="images/13.git-push-empty-delete-tag.PNG"><em>例7</em></a></p>
+  <p><code>git push &lt;new_repo_url&gt; --all</code> -  <a href="images/13.git-push-br-to-new-repo.PNG"><em>仓库迁移时，推送分支</em></a>。</p>
+  <p><code>git push &lt;new_repo_url&gt; --tags</code> - <a href="images/13.git-push-tags-to-new-repo.PNG"><em>仓库迁移时，推送标签</em></a>。</p>
   <hr>
   
   <h3>(14) git merge - 合并分支</h3>
