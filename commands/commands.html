@@ -173,5 +173,12 @@
   <p><code>git rev-parse HEAD</code> - <a href="images/22.git rev-parse HEAD.PNG"><em>获取完整 commit id</em></a>。</p>
   <p><code>git rev-parse --short HEAD</code> - <a href="images/22.git rev-parse --short HEAD.PNG"><em>获取 short commit id</em></a>。</p>
  
-</body>
+  <h3>(23) git rm - 删除文件，并加入暂存区，提交后删除版本库中的文件</h3>
+  <h4>典型使用：</h4>
+  <p><code>rm &lt;file&gt;</code> - <a href="images/23.rm.PNG"><em>删除工作区文件</em></a>。</p>
+  <p><code>git rm &lt;file&gt;</code> - <a href="images/23.git rm.PNG"><em>删除工作区文件，并加入暂存区（无法删除修改过未提交的文件）</em></a>。</p>
+  <p><code>git rm -f &lt;file&gt;</code> - <a href="images/23.git rm -f.PNG"><em>强制删除工作区文件，并加入暂存区</em></a>。</p>
+  <p><code>git rm --cached &lt;file&gt;</code> - <a href="images/23.git rm --cached.PNG"><em>删除暂存区文件，仍保留工作区的文件，并加入暂存区（仅从跟踪清单中删除）</em></a>。</p>
+  <p><code>git rm -r &lt;dir&gt;</code> - <em>递归删除</em>。</p>
+  </body>
 </html>
